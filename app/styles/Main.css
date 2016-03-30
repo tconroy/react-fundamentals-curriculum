@@ -1,0 +1,7 @@
+li {
+	transition: all .3s ease-in-out;
+	cursor: pointer;
+}
+li:hover {
+	transform: scale(1.25);
+}

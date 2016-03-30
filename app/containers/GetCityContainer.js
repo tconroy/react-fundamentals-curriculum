@@ -17,9 +17,6 @@ var GetCityContainer = React.createClass({
 		if (!this.state.city.length) {
 			return;
 		}
-
-		// getCurrentWeather(this.state.city);
-		// getFiveDayForecast(this.state.city);
 		this.context.router.push('/forecast/'+this.state.city);
 
 	},
