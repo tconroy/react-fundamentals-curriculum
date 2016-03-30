@@ -1,13 +1,17 @@
 var React = require('react');
+var Header = require('../components/Header');
 
-var HelloWorld = React.createClass({
+var Main = React.createClass({
 
 	render: function() {
 		return (
-			<p>Hello, world? :) </p>
+			<div>
+				<Header title="Clever Title" />
+				{this.props.children}
+			</div>
 		);
 	}
 
 });
 
-module.exports = HelloWorld;
+module.exports = Main;
