@@ -34,14 +34,13 @@ var helpers = {
 			});
 	},
 	getFiveDayForecast: function (city) {
-		axios.all([fetchFiveDayForecast(city)])
+		return fetchFiveDayForecast(city)
 			.then(function (response) {
-				console.log(response[0].data);
-				return response[0].data.list;
+				return response.data;
 			})
 			.catch(function (err) {
-				console.error('error getFiveDayForecast: ', err);
-				return err;
+				console.error('error: getFiveDatForecast: ', err);
+				return;
 			});
 	},
 };
