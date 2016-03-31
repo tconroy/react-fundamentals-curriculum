@@ -28,7 +28,7 @@ var GetCityContainer = React.createClass({
 	render: function() {
 		return (
 			<GetCity
-				format="block"
+				format={this.props.format}
 				city={this.state.city}
 				onSubmitCity={this.handleSubmitCity}
 				onUpdateCity={this.handleUpdateCity} />

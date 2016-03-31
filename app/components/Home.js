@@ -8,7 +8,7 @@ var Home = React.createClass({
 		return (
 			<div style={Styles.container}>
 				<h1 style={Styles.header}>Enter a City and a State</h1>
-				<GetCityContainer />
+				<GetCityContainer format="block" />
 			</div>
 		);
 	}

@@ -6,26 +6,43 @@ var convertTemp = require('../utils/Util').convertTemp;
 function Top (props) {
 	return (
 		<div>
-			<img style={{width: '300px', height: '300px'}} src={'./app/images/weather-icons/'+props.weather.weather[0].icon+'.svg'} />
-			<h3>{formatDate(props.weather.dt)}</h3>
+			<h1>{props.city}</h1>
+			<img style={{width: '300px', height: '300px'}}
+				src={'./app/images/weather-icons/'+props.icon+'.svg'} />
+			<h3>{formatDate(props.dt)}</h3>
 		</div>
 	);
 }
 
 function Bottom (props) {
+	var styles = {
+		ul: {
+			display: 'inline-block'
+		},
+		li: {
+			display: 'block',
+			fontSize: '1.5em',
+			cursor: 'default',
+		}
+	}
 	return (
-		<ul className="list-unstyled">
-			<li>{props.city}</li>
+		<ul className="list-unstyled" style={styles.ul}>
+			<li style={styles.li}>{props.weather.weather[0].description}</li>
+			<li style={styles.li}>Min: {Math.round(convertTemp(props.weather.temp.min))} degrees</li>
+			<li style={styles.li}>Max: {Math.round(convertTemp(props.weather.temp.max))} degrees</li>
+			<li style={styles.li}>Humidity: {props.weather.humidity}</li>
 		</ul>
 	);
 }
 
 function Detail(props) {
-	console.log(props);
 	return (
 		<div className="text-center">
-			<Top weather={props.weather} />
-			<Bottom city={props.city} weather={props.weather} />
+			<Top
+				city={props.city}
+				icon={props.weather.weather[0].icon}
+				dt={props.weather.dt} />
+			<Bottom weather={props.weather} />
 		</div>
 	);
 }
